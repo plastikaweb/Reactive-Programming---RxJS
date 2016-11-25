@@ -3,6 +3,10 @@ import {Observable} from 'rxjs';
 let numbers = [1, 3, 23];
 let source = Observable.create(observer => {
     for(let n of numbers) {
+
+        if(n === 3) {
+            observer.error('Something went wrong!');
+        }
         observer.next(n);
     }
 
